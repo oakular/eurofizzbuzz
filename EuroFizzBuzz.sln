@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroFizzBuzz", "EuroFizzBuzz\EuroFizzBuzz.csproj", "{196C93B1-CB7B-443A-AD67-D40FF4B1821D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroFizzBuzz.Tests", "EuroFizzBuzz.Tests\EuroFizzBuzz.Tests.csproj", "{419318CF-8397-4160-A689-0F310EC2CAFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroFizzBuzz.Tests", "EuroFizzBuzz.Tests\EuroFizzBuzz.Tests.csproj", "{1A89420F-9E30-4B6B-94BF-43D614E15DCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +15,9 @@ Global
 		{196C93B1-CB7B-443A-AD67-D40FF4B1821D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{196C93B1-CB7B-443A-AD67-D40FF4B1821D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{196C93B1-CB7B-443A-AD67-D40FF4B1821D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{419318CF-8397-4160-A689-0F310EC2CAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{419318CF-8397-4160-A689-0F310EC2CAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{419318CF-8397-4160-A689-0F310EC2CAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{419318CF-8397-4160-A689-0F310EC2CAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A89420F-9E30-4B6B-94BF-43D614E15DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A89420F-9E30-4B6B-94BF-43D614E15DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A89420F-9E30-4B6B-94BF-43D614E15DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A89420F-9E30-4B6B-94BF-43D614E15DCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using EuroFizzBuzz.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EuroFizzBuzz
 {
@@ -31,6 +33,9 @@ namespace EuroFizzBuzz
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var connection = "Data Source=eurofizzbuzz.db";
+            services.AddDbContext<EuroFizzBuzzContext>
+                (options => options.UseSqlite(connection));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
