@@ -90,5 +90,16 @@ namespace EuroFizzBuzz.Tests
                 Assert.True(submissions.Contains(result.Model as Submission));
             }
         }   
+
+        [Fact]
+        public void TestUpdateMethodReturnsUpdatedSubmission()
+        {
+            var controller = new HomeController(_fixture.Context);
+            var result = controller.Update(1, 10) as PartialViewResult;
+
+            var submission = result.Model as Submission;
+
+            Assert.Equal(1, submission.StartNumber);
+        }
     }
 }

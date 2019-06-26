@@ -33,6 +33,22 @@ namespace EuroFizzBuzz.Controllers
             return View(submission);
         }
 
+        public IActionResult Update(int startNumber, int endNumber)
+        {
+
+            var submission = new Submission
+            {
+                StartNumber = startNumber,
+                EndNumber = endNumber,
+                Timestamp = DateTime.Now
+            };
+
+            _context.Submissions.Add(submission);
+            _context.SaveChanges();
+
+            return PartialView(submission);
+        }
+
         public IActionResult Privacy()
         {
             return View();
