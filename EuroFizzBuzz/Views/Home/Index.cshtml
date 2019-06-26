@@ -4,9 +4,23 @@
 @model EuroFizzBuzz.Models.Submission;
 
 <div class="text-center">
-    <h1 class="display-4">@{ViewData["Title"]}</h1>
+    <h1 class="display-4">@ViewData["Title"]</h1>
     
-    @for (var idx = @Model.StartNumber; idx <= @Model.EndNumber; idx++) {
-        <p>@(idx)</p>
-    }
+
+
+    <table class="display table table-responsive-sm table-hover" id="studentList">
+        <thead>
+            <tr>
+                <th scope="col">Numbers</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (var idx = @Model.StartNumber; idx <= @Model.EndNumber; idx++) {
+                <tr>
+                    <td align="center">@(idx)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
