@@ -1,0 +1,25 @@
+@model EuroFizzBuzz.Models.Submission;
+@{
+    var factors = new List<(int, string)> {
+        (3, "Three"),
+        (5, "Five")
+    };
+
+    var fbService = new EuroFizzBuzz.Models.Services.FizzBuzzService(factors);
+}
+
+<table class="display table table-responsive-sm table-hover" id="studentList">
+        <thead>
+            <tr>
+                <th scope="col">Numbers</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (var idx = @Model.StartNumber; idx <= @Model.EndNumber; idx++) {
+                <tr>
+                    <td align="center">@(fbService.GetFizzBuzzValue(idx))</td>
+                </tr>
+            }
+        </tbody>
+</table>
