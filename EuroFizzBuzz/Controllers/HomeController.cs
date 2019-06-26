@@ -12,7 +12,14 @@ namespace EuroFizzBuzz.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var submission = new Submission
+            {
+                StartNumber = 1,
+                EndNumber = 100,
+                Timestamp = DateTime.Now
+            };
+
+            return View(submission);
         }
 
         public IActionResult Privacy()
