@@ -6,36 +6,31 @@ namespace EuroFizzBuzz.Models.Services
     {
         protected int[] Factors { get; private set; }
 
-        public FizzBuzzService(int[] multiples)
+        public FizzBuzzService(int[] factors)
         {
-            Factors = multiples;
+            Factors = factors;
         }
 
         public string GetFizzBuzzValue(int number)
         {
-            if (number == 21)
-            {
-                return "Three";
-            }
+            bool multipleOfFirstFactor = number % Factors[0] == 0;
+            bool multipleOfSecondFactor = number % Factors[1] == 0;
 
-            if (number == 30)
+            if (multipleOfFirstFactor && multipleOfSecondFactor)
             {
                 return "Eurofins";
             }
-            
-            return "Five";
-        }
 
-        private int IsMultiple(int number)
-        {
-            return 1;
-            foreach (int factor in Factors)
+            if (multipleOfFirstFactor)
             {
-                if (number % factor == 0)
-                {
+                return "Three";
+            }
+            if (multipleOfSecondFactor)
+            {
+                return "Five";
+            }
 
-                }
-            }            
+            return number.ToString();
         }
     }
 }

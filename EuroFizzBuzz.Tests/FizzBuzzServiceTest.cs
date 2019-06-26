@@ -6,16 +6,16 @@ namespace EuroFizzBuzz.Tests
 {
     public class FizzBuzzServiceTest
     {
-        // TODO: Use Theory
         [Theory]
         [InlineData(21, "Three")]
-        [InlineData(15, "Five")]
+        [InlineData(20, "Five")]
         [InlineData(30, "Eurofins")]
+        [InlineData(4, "4")]
         public void TestFizzBuzzServiceModifiesOutputForMultiples(int multiple, string expectedValue)
         {
-            int[] multiples = { 3, 5 };
+            int[] factors = { 3, 5 };
 
-            FizzBuzzService service = new FizzBuzzService(multiples);
+            FizzBuzzService service = new FizzBuzzService(factors);
 
             var result = service.GetFizzBuzzValue(multiple);
 
