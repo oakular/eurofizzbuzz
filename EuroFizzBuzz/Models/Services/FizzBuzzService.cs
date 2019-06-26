@@ -1,20 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace EuroFizzBuzz.Models.Services
 {
     public class FizzBuzzService
     {
-        protected int[] Factors { get; private set; }
+        private readonly List<(int, string)> _factors;
 
-        public FizzBuzzService(int[] factors)
+        public FizzBuzzService(List<(int, string)> factors)
         {
-            Factors = factors;
+            _factors = factors;
         }
 
         public string GetFizzBuzzValue(int number)
         {
-            bool multipleOfFirstFactor = number % Factors[0] == 0;
-            bool multipleOfSecondFactor = number % Factors[1] == 0;
+            bool multipleOfFirstFactor = number % _factors[0].Item1 == 0;
+            bool multipleOfSecondFactor = number % _factors[1].Item1 == 0;
 
             if (multipleOfFirstFactor && multipleOfSecondFactor)
             {
@@ -23,11 +24,11 @@ namespace EuroFizzBuzz.Models.Services
 
             if (multipleOfFirstFactor)
             {
-                return "Three";
+                return _factors[0].Item2;
             }
             if (multipleOfSecondFactor)
             {
-                return "Five";
+                return _factors[1].Item2;
             }
 
             return number.ToString();

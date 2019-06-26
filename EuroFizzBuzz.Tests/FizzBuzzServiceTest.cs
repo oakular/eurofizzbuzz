@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using EuroFizzBuzz.Models.Services;
+using System.Collections.Generic;
 
 namespace EuroFizzBuzz.Tests
 {
@@ -13,7 +14,11 @@ namespace EuroFizzBuzz.Tests
         [InlineData(4, "4")]
         public void TestFizzBuzzServiceModifiesOutputForMultiples(int multiple, string expectedValue)
         {
-            int[] factors = { 3, 5 };
+            var factors = new List<(int, string)>
+            {
+                (3, "Three"),
+                (5, "Five")
+            };
 
             FizzBuzzService service = new FizzBuzzService(factors);
 
