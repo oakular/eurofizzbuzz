@@ -10,14 +10,25 @@ namespace EuroFizzBuzz.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly EuroFizzBuzzContext _context;
+
+        public HomeController(EuroFizzBuzzContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
+        
             var submission = new Submission
             {
                 StartNumber = 1,
                 EndNumber = 100,
                 Timestamp = DateTime.Now
             };
+
+            _context.Submissions.Add(submission);
+            _context.SaveChanges();
 
             return View(submission);
         }
