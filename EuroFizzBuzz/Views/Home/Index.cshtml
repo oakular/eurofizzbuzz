@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Home";
 }
 
@@ -6,3 +6,36 @@
     <h1 class="display-4">@ViewData["Title"]</h1>
     <partial name="/Views/FizzBuzzTable/_FizzBuzzTable.cshtml"/>
 </div>
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script>
+
+$("#submitBtn").click(function () {
+    var startNumber;
+    var endNumber;
+
+    if ($('input[name=startNumber]').val().length == 0) {
+        startNumber = 1;
+    } else {
+        startNumber = $('input[name=startNumber]').val();
+    }
+
+    if ($('input[name=endNumber]').val().length == 0) {
+        endNumber = 100;
+    } else {
+        endNumber = $('input[name=endNumber]').val();
+    }
+
+    $.ajax({
+        url: '@Url.Action("UpdateTable","Home")',
+        type: "POST",
+        data: {
+            startNumber: startNumber,
+            endNumber: endNumber
+        },
+        success: function (result) {
+            $("#tableDiv").html(result);
+        }
+    });
+})
+</script>
