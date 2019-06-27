@@ -1,12 +1,19 @@
-@{
+﻿@{
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">@ViewData["Title"]</h1>
-<div id="tableDiv">
-    @await Html.PartialAsync("~/Views/FizzBuzzTable/_FizzBuzzTable.cshtml")
+<div class="form-row">
+    <div class="col-sm form-inline justify-content-center ">
+        <input id="startNumber" class="form-control mr-sm-2" name="startNumber" type="number" min="1" max="100" placeholder="@Model.StartNumber"/>
+        <input id="endNumber" class="form-control mr-sm-2" name="endNumber" type="number" value="100" min="2" max="100"/>
+        <button class="btn btn-success" id="submitBtn">Submit</button>
+    </div>
 </div>
+
+<div class="row">
+    <div id="tableDiv" class="col-sm mt-3">
+        @await Html.PartialAsync("~/Views/FizzBuzzTable/_FizzBuzzTable.cshtml")
+    </div>
 </div>
 
 <script src="/lib/jquery/dist/jquery.js"></script>
