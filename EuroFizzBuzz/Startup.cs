@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -65,7 +65,7 @@ namespace EuroFizzBuzz
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "update",
-                    template: "{controller=Home}/{action=Update}/{startNumber?}/{endNumber?}"
+                    template: "{controller=Home}/{action=UpdateTable}"
                 );
             });
         }

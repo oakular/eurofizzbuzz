@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace EuroFizzBuzz.Controllers
             return View(submission);
         }
 
-        public IActionResult Update(int startNumber, int endNumber)
+        public IActionResult UpdateTable(int startNumber, int endNumber)
         {
 
             var submission = new Submission
