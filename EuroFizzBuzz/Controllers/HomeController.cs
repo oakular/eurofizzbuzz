@@ -46,7 +46,7 @@ namespace EuroFizzBuzz.Controllers
             _context.Submissions.Add(submission);
             _context.SaveChanges();
 
-            return PartialView(submission);
+            return PartialView("~/Views/FizzBuzzTable/_FizzBuzzTable.cshtml", submission);
         }
 
         public IActionResult Privacy()
