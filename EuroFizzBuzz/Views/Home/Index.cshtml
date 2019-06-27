@@ -4,7 +4,9 @@
 
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
-    <partial name="/Views/FizzBuzzTable/_FizzBuzzTable.cshtml"/>
+<div id="tableDiv">
+    @await Html.PartialAsync("~/Views/FizzBuzzTable/_FizzBuzzTable.cshtml")
+</div>
 </div>
 
 <script src="/lib/jquery/dist/jquery.js"></script>
