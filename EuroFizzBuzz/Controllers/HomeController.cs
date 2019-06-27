@@ -19,13 +19,7 @@ namespace EuroFizzBuzz.Controllers
 
         public IActionResult Index()
         {
-        
-            var submission = new Submission
-            {
-                StartNumber = 1,
-                EndNumber = 100,
-                Timestamp = DateTime.Now
-            };
+            var submission = CreateSubmissionModel(1, 100);
 
             _context.Submissions.Add(submission);
             _context.SaveChanges();
@@ -35,13 +29,14 @@ namespace EuroFizzBuzz.Controllers
 
         public IActionResult UpdateTable(int startNumber, int endNumber)
         {
+            var submission = CreateSubmissionModel(startNumber, endNumber);
 
-            var submission = new Submission
+            TryValidateModel(submission);
+
+            if (!ModelState.IsValid)
             {
-                StartNumber = startNumber,
-                EndNumber = endNumber,
-                Timestamp = DateTime.Now
-            };
+                return Error();
+            }
 
             _context.Submissions.Add(submission);
             _context.SaveChanges();
@@ -58,6 +53,16 @@ namespace EuroFizzBuzz.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private Submission CreateSubmissionModel(int startNumber, int endNumber)
+        {
+            return new Submission
+            {
+                StartNumber = startNumber,
+                EndNumber = endNumber,
+                Timestamp = DateTime.Now
+            };
         }
     }
 }
