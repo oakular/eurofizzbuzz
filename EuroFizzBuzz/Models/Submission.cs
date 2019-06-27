@@ -18,9 +18,11 @@ namespace EuroFizzBuzz.Models
         public int SubmissionId { get; set; }
 
         [Display(Name = "Start Number")]
+        [Range(1,100)]
         public int StartNumber { get; set; }
 
         [Display(Name = "End Number")]
+        [Range(1,100)]
         public int EndNumber { get; set; }
 
         [DataType(DataType.DateTime)]
