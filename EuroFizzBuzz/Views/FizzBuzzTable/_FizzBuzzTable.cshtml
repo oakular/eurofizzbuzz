@@ -11,13 +11,15 @@
 <table class="display table table-hover mx-auto" id="fizzBuzzTable">
         <thead class="thead-light">
             <tr class="text-center">
-                <th scope="col">Numbers</th>
+                <th scope="col">Original Value</th>
+                <th scope="col">Updated Value</th>
             </tr>
         </thead>
 
         <tbody>
             @for (var idx = @Model.StartNumber; idx <= @Model.EndNumber; idx++) {
                 <tr>
+                    <td align="center">@(idx)</td>
                     <td align="center">@(fbService.GetFizzBuzzValue(idx))</td>
                 </tr>
             }
