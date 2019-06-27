@@ -1,39 +1,50 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
+@model EuroFizzBuzz.Models.Submission;
 
 <div class="form-row">
-    <div class="col-sm form-inline justify-content-center ">
-        <input id="startNumber" class="form-control mr-sm-2" name="startNumber" type="number" min="1" max="100" placeholder="@Model.StartNumber"/>
-        <input id="endNumber" class="form-control mr-sm-2" name="endNumber" type="number" value="100" min="2" max="100"/>
-        <button class="btn btn-success" id="submitBtn">Submit</button>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body form-inline justify-content-center">
+                <div class="form-group">
+                    <label asp-for="StartNumber" class="control-label mr-sm-2"></label>
+                    <input id="startNumber" class="form-control mr-sm-2" name="startNumber" type="number" min="1" max="100" placeholder="@Model.StartNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EndNumber" class="control-label mr-sm-2"></label>
+                    <input id="endNumber" class="form-control mr-sm-2" name="endNumber" type="number" value="100" min="1" max="100"/>
+                    <button class="btn btn-success" id="submitBtn">Update</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
 <div class="row">
-    <div id="tableDiv" class="col-sm mt-3">
+    <div id="tableDiv" class="col-sm mt-5">
         @await Html.PartialAsync("~/Views/FizzBuzzTable/_FizzBuzzTable.cshtml")
     </div>
 </div>
 
 <script src="/lib/jquery/dist/jquery.js"></script>
 <script>
+    function getValueToSubmit(name) {
+        if ($(name).val().length == 0) {
+            return 1;
+        }
+
+        return $(name).val();
+    }
 
 $("#submitBtn").click(function () {
-    var startNumber;
-    var endNumber;
-
-    if ($('input[name=startNumber]').val().length == 0) {
-        startNumber = 1;
-    } else {
-        startNumber = $('input[name=startNumber]').val();
-    }
-
-    if ($('input[name=endNumber]').val().length == 0) {
-        endNumber = 100;
-    } else {
-        endNumber = $('input[name=endNumber]').val();
-    }
+    var startNumber = getValueToSubmit('input[name=startNumber]');
+    var endNumber = getValueToSubmit('input[name=endNumber]');
 
     $.ajax({
         url: '@Url.Action("UpdateTable","Home")',
