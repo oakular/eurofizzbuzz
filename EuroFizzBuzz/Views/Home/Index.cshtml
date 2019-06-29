@@ -37,16 +37,16 @@
 
 <script src="/lib/jquery/dist/jquery.js"></script>
 <script>
- function getValueToSubmit(name) {
+ function getValueToSubmit(name, isNullValue) {
      if ($(name).val().length == 0) {
-         return 1;
+         return isNullValue;
      }
 
      return $(name).val();
  }
 
- function checkInputIsValid(name) {
-     if ($(name).val() > 100 || $(name).val() < 1) {
+ function checkValueIsValid(value) {
+     if (value > 100 || value < 1) {
          return false;
      }
 
@@ -54,10 +54,10 @@
  }
 
  $("#submitBtn").click(function () {
-     var startNumber = getValueToSubmit('input[name=startNumber]');
-     var endNumber = getValueToSubmit('input[name=endNumber]');
+     var startNumber = getValueToSubmit('input[name=startNumber]', 1);
+     var endNumber = getValueToSubmit('input[name=endNumber]', 100);
 
-     if (!checkInputIsValid('input[name=startNumber]') || !checkInputIsValid('input[name=endNumber]')) {
+     if (!checkValueIsValid(startNumber) || !checkValueIsValid(endNumber)) {
          alert('The values you entered were invalid, please enter only numbers between 1 and 100');
          return;
      }
