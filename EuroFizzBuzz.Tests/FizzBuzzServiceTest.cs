@@ -27,5 +27,12 @@ namespace EuroFizzBuzz.Tests
             Assert.Equal(expectedValue, result);
         }
 
+        [Fact]
+        public void TestSetIsMultipleOfBothValueChangesValue()
+        {
+            FizzBuzzService service = new FizzBuzzService(factors, "New Value");
+
+            Assert.Equal("New Value", service.IsMultipleOfBothValue);
+        }
     }
 }

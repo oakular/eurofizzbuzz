@@ -6,10 +6,12 @@ namespace EuroFizzBuzz.Models.Services
     public class FizzBuzzService
     {
         private readonly List<(int, string)> _factors;
+        public string IsMultipleOfBothValue { get; set; }
 
-        public FizzBuzzService(List<(int, string)> factors)
+        public FizzBuzzService(List<(int, string)> factors, string isMultipleOfBothValue = "Eurofins")
         {
             _factors = factors;
+            IsMultipleOfBothValue = isMultipleOfBothValue;
         }
 
         public string GetFizzBuzzValue(int number)
@@ -19,7 +21,7 @@ namespace EuroFizzBuzz.Models.Services
 
             if (multipleOfFirstFactor && multipleOfSecondFactor)
             {
-                return "Eurofins";
+                return IsMultipleOfBoth;
             }
 
             if (multipleOfFirstFactor)
