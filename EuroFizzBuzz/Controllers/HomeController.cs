@@ -35,7 +35,7 @@ namespace EuroFizzBuzz.Controllers
 
             if (!ModelState.IsValid)
             {
-                return Error();
+                return PartialView("~/Views/FizzBuzzTable/_FizzBuzzTableError.cshtml");
             }
 
             _context.Submissions.Add(submission);
