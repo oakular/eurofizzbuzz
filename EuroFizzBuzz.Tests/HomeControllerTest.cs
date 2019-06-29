@@ -95,7 +95,7 @@ namespace EuroFizzBuzz.Tests
         public void TestUpdateMethodReturnsUpdatedSubmission()
         {
             var controller = new HomeController(_fixture.Context);
-            var result = controller.Update(1, 10) as PartialViewResult;
+            var result = controller.UpdateTable(1, 10) as PartialViewResult;
 
             var submission = result.Model as Submission;
 
