@@ -30,6 +30,11 @@ namespace EuroFizzBuzz.Tests
         [Fact]
         public void TestSetIsMultipleOfBothValueChangesValue()
         {
+            var factors = new List<(int, string)>
+            {
+                (3, "Three"),
+                (5, "Five")
+            }; 
             FizzBuzzService service = new FizzBuzzService(factors, "New Value");
 
             Assert.Equal("New Value", service.IsMultipleOfBothValue);

@@ -21,7 +21,7 @@ namespace EuroFizzBuzz.Models.Services
 
             if (multipleOfFirstFactor && multipleOfSecondFactor)
             {
-                return IsMultipleOfBoth;
+                return IsMultipleOfBothValue;
             }
 
             if (multipleOfFirstFactor)
