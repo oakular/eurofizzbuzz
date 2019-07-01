@@ -403,6 +403,5 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
-eurofizzbuzz.db
 .vscode/tasks.json
 .vscode/launch.json
